@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.buffet})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <main class="containerBuffet">
+
+    <!-- Colonna sinistra -->
+    <div class="colonnaBuffet-sinistra">
+      <img src="/images/buffet.jpeg">
+    </div>
+
+    <!-- Colonna destra -->
+    <div class="colonnaBuffet-destra">
+
+      <!-- Descrizione -->
+      <div th:if="${buffet}" th:object="${buffet}" class="descrizioneBuffet">
+        <span>BUFFET</span>
+        <h1 th:text="*{nome}">APERITIVO</h1>
+        <p th:text="*{descrizione}">Come il nome suggerisce, rappresenta l'aperitivo a cena, quindi un aperitivo cenato o un aperitivo rinforzato, ideale per una cena informale</p><br>
+        <hr><br><h3>Chef:</h3><br>
+        <div>
+          <span>Nome: </span><span th:text="${buffet.chef.nome}"></span>
+        </div>
+        <div>
+          <span>Cognome: </span><span th:text="${buffet.chef.cognome}"></span>
+        </div>
+        <div>
+          <span>Nazionalita: </span><span th:text="${buffet.chef.nazionalita}"></span>
+        </div>
+      </div><br>
+        <hr><br><h3>Piatti:</h3>
+        <div th:each="piatto : ${buffet.piattiProposti}">
+          <a
+            th:href="@{'/piatto' + '/' + ${piatto.id}}"
+            th:text="${piatto.nome}"
+          ></a>
+        </div>
+      </div>
+      
+      <div th:unless="${buffet}">Questo prodotto non esiste</div>
+      
+    </div>
+  </main>
+    <footer th:replace="fragments/base.html :: fondo('/default')"></footer>
+</body>
+</html>

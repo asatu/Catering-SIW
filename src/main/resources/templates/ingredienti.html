@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=#{header.ingredienti})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	
+	<div class="body-content">
+
+        <div class="containerLogin">
+            <div class="logoLogin">
+                <img src="/images/logo.png" alt="Company Logo" srcset="">
+            </div>
+            
+            
+	<div class="font-size">
+    	<h2>Lista ingredienti</h2>
+		<ul>
+			<li th:each="ingrediente : ${ingredienti}">
+				<a href="ingrediente.html" 
+				   th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}" 
+				   th:text="${ingrediente.nome}">Pomodoro</a>
+				   <a sec:authorize-url="/admin"  href="ingrediente.html"  th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}">Cancella</a>
+				   <a sec:authorize-url="/admin" th:href="@{'/admin/ingredienteEdit' + '/' + ${ingrediente.id}}">Modifica</a>
+			</li>
+		</ul>
+	</div>
+	
+	  </div>
+        </div>
+        
+	<footer th:replace="fragments/base.html :: fondo('/default')"></footer>
+</body>
+</html>

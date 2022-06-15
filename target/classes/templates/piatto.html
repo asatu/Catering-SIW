@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.piatto})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div class="body-content">
+
+        <div class="containerLogin">
+            <div class="logoLogin">
+                <img src="/images/logo.png" alt="Company Logo" srcset="">
+            </div>
+            
+    <div class="font-size">
+    	<h2>Dettagli Piatto</h2><hr><br>
+    	<div th:if="${piatto}" th:object="${piatto}">
+    	<div><span>Nome:  </span><span th:text="*{nome}">nome</span></div>
+			<div><span>Descrizione:  </span><span th:text="*{descrizione}">descrizione </span></div>
+   		</div>
+   		
+   		
+   		
+   		<div class="font-size">Ingradienti:  </div>
+
+	<ul>
+          <li th:each="ingrediente : ${piatto.ingredienti}">
+            <a
+              th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+              th:text="${ingrediente.nome}"
+            ></a>
+          </li>
+          </ul>
+    	<div th:unless="${piatto}">Questo piatto non esiste</div>
+    </div>
+    
+                    </div>
+        </div>
+    <footer th:replace="fragments/base.html :: fondo('/default')"></footer>
+</body>
+</html>

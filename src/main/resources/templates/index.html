@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title='Catering SIW Riccardo Scudieri')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    
+<main>
+       <section>
+           <div class="container">
+               <div class="half-width">
+                    <div class="heading">
+                        <h2><span class="brand-color">Catering SIW</span> EFFICIENZA E QUALITA'<br>
+                            Per I Tuoi Eventi</h2>
+                       
+                        <p>Con naturale eleganza e semplicità il California Catering è in grado di proporre i più alti standard qualitativi del settore.</p>  
+                        
+                    </div>
+                    <div class="heading-image">
+                        <img src="/images/mim.png" alt="">
+                    </div>
+               </div>
+           </div>
+       </section>
+
+       <!-- buffets -->
+
+       <section class="buffet-section-banner">
+           <div class="container">
+               <h1>I Nostri Buffet</h1>
+               <p>Ricercatezza ed eccellenza delle materie prime</p>
+            <div class="menu-items">
+                <div class="item">
+                    <img src="/images/food/food1.jpg" alt="">
+                    <h3>APERICENA</h3>
+                    <p>Come il nome suggerisce, rappresenta l'aperitivo a cena, quindi un aperitivo cenato o un aperitivo rinforzato, ideale per una cena informale</p>
+                </div>
+                <div class="item">
+                    <img src="/images/food/food2.jpg" alt="">
+                    <h3>GASTRONOMICO</h3>
+                    <p>Consigliato per un piccolo rinfresco, il gastronomico è formato da tramezzini, pizzette, mini bottonicini. Ideale per le feste</p>
+                </div>
+                <div class="item">
+                    <img src="/images/food/food3.jpg" alt="">
+                    <h3>VEGETARIANO</h3>
+                    <p>Consigliato per pranzo o cena, è a base di sole verdure. Ideale per i Vegetariani! Con primi e secondi e dolcetti!</p>
+                </div>
+                <div class="item">
+                    <img src="/images/food/food4.jpg" alt="">
+                    <h3>BUFFET VERDE</h3>
+                    <p>Consigliato per una cena, in occasione di feste e ricevimenti. Completo di primi, e secondi</p>
+                </div>
+                <div class="item">
+                    <img src="/images/food/food5.jpg" alt="">
+                    <h3>BUFFET 1</h3>
+                    <p>Consigliato per un rinfresco  (anche aziendale), simile al Buffet Gastronomico.. con un pò di porchetta</p>
+                </div>
+                <div class="item">
+                    <img src="/images/food/food6.jpg" alt="">
+                    <h3>BUFFET 2</h3>
+                    <p>Consigliato per un rinfresco "freddo", è composto da antipasti, primi freddi, secondi e contorni</p>
+                </div>
+               
+               </div>
+           </div>
+       </section><br><br> 
+
+       <!-- chefs -->
+
+       <section class="banner-img">
+           <div class="container">
+                <h1>I Nostri Chefs</h1>
+                <p>"La cucina è di per sé scienza, sta al cuoco farla divenire arte" cit. Gualtiero Marchesi …</p>
+           </div>
+           <div class="chef-list">
+                <div class="chef">
+                    <img src="/images/chefs/player-1.png" alt="">
+                    <h2 class="chef-name">Warner</h4>
+                </div>
+                <div class="chef">
+                    <img src="/images/chefs/player-2.png" alt="">
+                    <h2 class="chef-name">Smith</h4>
+                </div>
+                <div class="chef">
+                    <img src="/images/chefs/player-3.png" alt="">
+                    <h2 class="chef-name">Finch</h4>
+                </div>
+                <div class="chef">
+                    <img src="/images/chefs/player-4.png" alt="">
+                    <h2 class="chef-name">Maxwell</h4>
+                </div>
+                <div class="chef">
+                    <img src="/images/chefs/player-5.png" alt="">
+                    <h2 class="chef-name">Zumpa</h4>
+                </div>
+                <div class="chef">
+                    <img src="/images/chefs/player-6.png" alt="">
+                    <h2 class="chef-name">Marsh</h4>
+                </div>
+           </div>
+       </section><br><br> 
+
+    <footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+</body>
+</html>

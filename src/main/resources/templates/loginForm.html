@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Login')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	
+<div class="body-content">
+
+        <div class="containerLogin">
+            <div class="logoLogin">
+                <img src="/images/logo.png" alt="Company Logo" srcset="">
+            </div>
+                <form th:action="@{/login}" method="POST">
+                    <div class="form-item">
+                        <!-- <label for="userName">Username:</label> -->
+                        <input name="username" type="text" placeholder="username" required />
+                    </div>
+                    <div class="form-item">
+                        <!-- <label for="passWord">Password:</label> -->
+                        <input name="password" type="password" placeholder="password" required />
+                    </div>
+
+                    <div class="form-btns">
+
+                        <button type="submit">Accedi</button>
+                        <div class="options">
+                            <a th:href="@{register}"><h3>Registrati</h3></a>
+                        </div>
+                </div>
+
+               </form>
+                    </div>
+        </div>
+	
+    <footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+</body>
+</html>

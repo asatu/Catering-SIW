@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Registra Utente')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	
+	<div class="body-content">
+
+            <div class="containerLogin">
+                <div class="logoLogin">
+                    <img src="/images/logo.png" alt="Company Logo" srcset="">
+                </div>
+                <form th:action="@{/register}" method="POST">
+                    
+                    <div class="form-item">
+                        <input type="text" placeholder="username" required
+                       th:field="${credentials.username}"/>
+                       <a th:if="${#fields.hasErrors('credentials.username')}"
+                        th:errors="${credentials.username}" th:style="'color:red'"></a>
+                    </div>
+                    <div class="form-item">
+                        <input type="password" placeholder="password" required
+                       th:field="${credentials.password}"/>
+                       <a th:if="${#fields.hasErrors('credentials.password')}"
+                 th:errors="${credentials.password}" th:style="'color:red'"></a>
+
+                    </div>
+                    <div class="form-item">
+                        <input type="text" placeholder="nome" required
+                       th:field="${user.nome}"/>
+                       <a th:if="${#fields.hasErrors('user.nome')}"
+                th:errors="${user.nome}" th:style="'color:red'"></a>
+                    </div>
+                    <div class="form-item">
+                        <input type="text" placeholder="cognome" required
+                       th:field="${user.cognome}"/>
+                       <a th:if="${#fields.hasErrors('user.cognome')}"
+                th:errors="${user.cognome}" th:style="'color:red'"></a>
+                    </div>
+        
+                    <div class="form-btns">
+                        <button type="submit">Accedi</button>
+                        <div class="options">
+                            Hai già un account?<a th:href="@{login}">Accedi qui</a>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+	
+    <footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+</body>
+</html>

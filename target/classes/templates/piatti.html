@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=#{header.piatti})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="body-content">
+
+        <div class="containerLogin">
+            <div class="logoLogin">
+                <img src="/images/logo.png" alt="Company Logo" srcset="">
+            </div>
+	<div class="font-size">
+    	<h2>Lista dei piatti</h2>
+		<ul>
+			<li th:each="piatto : ${piatti}">
+				<a href="piatto.html" 
+				   th:href="@{'/piatto' + '/' + ${piatto.id}}" 
+				   th:text="${piatto.nome}">Lasagna</a>
+				   <a th:if="'credentials.getRole()' == 'Credentials.ADMIN_ROLE'" href="piatto.html"  th:href="@{'/admin/deletePiatto' + '/' + ${piatto.id}}">Cancella</a>
+				   <a th:if="'credentials.getRole()' == 'Credentials.ADMIN_ROLE'" th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}">Modifica</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+        </div>
+	<footer th:replace="fragments/base.html :: fondo('/default')"></footer>
+</body>
+</html>

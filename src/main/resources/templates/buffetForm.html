@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=#{title.formBuffet})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div class="body-content">
+
+        <div class="containerLogin">
+            <div class="logoLogin">
+                <img src="/images/logo.png" alt="Company Logo" srcset="">
+            </div>
+	<div class="font-size">
+		<h3>Inserisci buffet</h4>
+	</div>
+	<form th:action="@{/admin/buffet}" method="POST" th:object="${buffet}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>		
+		<div>
+			<div class="form-item">
+				<span>Nome:</span>
+				<span><input type="text" th:field="*{nome}" /></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>		
+			<div class="form-item">
+				<span>Descrizione:</span>
+				<span><input type="text" th:field="*{descrizione}" /></span>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>
+			<div class="form-item">
+                <div>Seleziona  chef:
+                    <select th:field="*{chef}">
+                        <option value=""></option>
+                        <option th:each="chef : ${chefs}"
+                                th:value="${chef.id}"
+                                th:text="${chef.nome}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div>
+                <div>Seleziona piatti: </div>
+                <fieldset>
+                    <div th:each="piatto: ${piattiProposti}">
+                        <input type="checkbox" id="${piattiProposti}" th:field="*{piattiProposti}" name="piatto" th:value="${piatto.id}" >
+                        <label for="${piattiProposti}" th:text="${piatto.nome}">Nome piatto</label>
+                    </div>
+                </fieldset>
+            </div>
+            
+			<div class="form-btns">
+				<span><button type="submit">Invio</button></span>
+			</div>
+		</div>
+	</form>
+                    </div>
+        </div>
+        
+	<footer th:replace="fragments/base.html :: fondo('/default')"></footer>
+</body>
+</html>
